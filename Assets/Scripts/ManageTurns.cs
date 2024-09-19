@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ManageTurns : MonoBehaviour
 {
@@ -8,8 +11,7 @@ public class ManageTurns : MonoBehaviour
     [SerializeField] private GameObject player2;
     public PlayerClass turnTaker;
     private int turnNumber = 1;
-
- 
+   
 
     public void CheckWhoseTurn()
     {
