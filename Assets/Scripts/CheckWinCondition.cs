@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,7 +16,7 @@ public class CheckWinCondition : MonoBehaviour
     [SerializeField] TMP_Text BottomLeft;
     [SerializeField] TMP_Text BottomMid;
     [SerializeField] TMP_Text BottomRight;
-    private bool thereIsWinner = false;
+    public bool thereIsWinner = false;
     [SerializeField] private GameObject gameMessageCanvas;
     [SerializeField] private GameObject turnManager;
 
@@ -63,14 +64,23 @@ public class CheckWinCondition : MonoBehaviour
         }
         else { thereIsWinner = false; }
 
+        ManageTurns turns = turnManager.GetComponent<ManageTurns>();
+        TMP_Text winMessage = gameMessageCanvas.GetComponentInChildren<TMP_Text>();
 
-        if (thereIsWinner)
+        if (!thereIsWinner && turns.turnNumber >= 9)
+        {
+            winMessage.text = "Youv'e reached a Tie!";
+            gameMessageCanvas.SetActive(true);
+        }
+
+
+        else if (thereIsWinner)
         {
             Debug.Log("WINNER");
-            ManageTurns turns = turnManager.GetComponent<ManageTurns>();
-            PlayerClass turnTaker = turns.turnTaker;
-            TMP_Text winMessage = gameMessageCanvas.GetComponentInChildren<TMP_Text>();
-            winMessage.text = turnTaker.name + " wins!";
+            turns.EndTurn();
+            turns.CheckWhoseTurn();
+            PlayerClass winner = turns.turnTaker;
+            winMessage.text = winner.Name + " wins!";
             gameMessageCanvas.SetActive(true);
         }
     }

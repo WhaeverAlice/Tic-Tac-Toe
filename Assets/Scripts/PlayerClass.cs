@@ -8,10 +8,7 @@ public class PlayerClass : MonoBehaviour
 
 {
     public string Shape;
-    public bool GoesFirst;
     public string Name;
-
-  
 }
 
 

@@ -9,6 +9,7 @@ public class AssignPlayerShapes : MonoBehaviour
     [SerializeField] private PlayerClass player2;
     [SerializeField] private TMP_Text buttonText;
     [SerializeField] private GameObject selectScreen;
+    [SerializeField] private GameObject turnScreen;
   
 
 
@@ -26,6 +27,7 @@ public class AssignPlayerShapes : MonoBehaviour
         }
 
         selectScreen.SetActive(false);
+        turnScreen.SetActive(true);
     }
   
 }

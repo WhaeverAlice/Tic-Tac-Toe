@@ -10,7 +10,7 @@ public class ManageTurns : MonoBehaviour
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
     public PlayerClass turnTaker;
-    private int turnNumber = 1;
+    public int turnNumber = 1;
    
 
     public void CheckWhoseTurn()

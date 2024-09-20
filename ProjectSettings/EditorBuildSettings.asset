@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 830623ca3dd0af7438da7d9d767209eb
+  - enabled: 1
+    path: Assets/Scenes/PvPGameBoard.unity
+    guid: 8da8ca1ddcd29a64693bc8f36252fb0a
+  - enabled: 1
+    path: Assets/Scenes/PvEGameBoard-Easy.unity
+    guid: d516dbe5442e2b74cac97b05f4ab8bc1
   m_configObjects: {}

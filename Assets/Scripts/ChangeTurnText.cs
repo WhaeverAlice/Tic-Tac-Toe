@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ChangeText : MonoBehaviour
+public class ChangeTurnText : MonoBehaviour
 {
-    [SerializeField] private TMP_Text buttonText;
-    [SerializeField] private GameObject turnManager;
-    
-  
 
-    public void NewText()
+    [SerializeField] private TMP_Text turnText;
+    [SerializeField] private GameObject turnManager;
+
+
+
+    public void NewTurnText()
     {
         ManageTurns turns = turnManager.GetComponent<ManageTurns>();
         turns.CheckWhoseTurn();
         PlayerClass player = turns.turnTaker;
-        
-        buttonText.text = player.Shape;
-        turns.EndTurn();
+
+        turnText.text = player.Name + "'s turn";
+       
 
     }
 }
