@@ -167,7 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shape: X
-  GoesFirst: 1
   Name: Player 1
 --- !u!114 &64199769 stripped
 MonoBehaviour:
@@ -206,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224478339}
   - component: {fileID: 224478338}
+  - component: {fileID: 224478340}
   m_Layer: 0
   m_Name: BoardController
   m_TagString: Untagged
@@ -225,17 +225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97f0b7d786c336429a3cc0bb88a62df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopLeft: {fileID: 1504006707}
-  TopMid: {fileID: 1779655422}
-  TopRight: {fileID: 188502693}
-  MidMid: {fileID: 428642396}
-  MidLeft: {fileID: 618006707}
-  MidRight: {fileID: 1426377996}
-  BottomLeft: {fileID: 64199769}
-  BottomMid: {fileID: 1016297020}
-  BottomRight: {fileID: 430408635}
+  thereIsWinner: 0
   gameMessageCanvas: {fileID: 105435715}
   turnManager: {fileID: 1629709658}
+  boardController: {fileID: 224478337}
 --- !u!4 &224478339
 Transform:
   m_ObjectHideFlags: 0
@@ -251,6 +244,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &224478340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224478337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8072589341fe0d49b2d442c57e01a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TopLeft: {fileID: 1504006707}
+  TopMid: {fileID: 1779655422}
+  TopRight: {fileID: 188502693}
+  MidMid: {fileID: 428642396}
+  MidLeft: {fileID: 618006707}
+  MidRight: {fileID: 1426377996}
+  BottomLeft: {fileID: 64199769}
+  BottomMid: {fileID: 1016297020}
+  BottomRight: {fileID: 430408635}
 --- !u!114 &428642396 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8309058363840180284, guid: c2f0974ea10bfad41b9ea0eb7d32b3b3, type: 3}
@@ -369,7 +383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shape: O
-  GoesFirst: 0
   Name: Player 2
 --- !u!4 &1528582036
 Transform:
@@ -527,6 +540,7 @@ MonoBehaviour:
   player1: {fileID: 26010416}
   player2: {fileID: 1528582034}
   turnTaker: {fileID: 0}
+  turnNumber: 1
 --- !u!114 &1779655422 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8378219273468208919, guid: c2f0974ea10bfad41b9ea0eb7d32b3b3, type: 3}

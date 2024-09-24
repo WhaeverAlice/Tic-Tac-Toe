@@ -7,28 +7,15 @@ using UnityEngine.UIElements;
 
 public class CheckWinCondition : MonoBehaviour
 {
-    [SerializeField] TMP_Text TopLeft;
-    [SerializeField] TMP_Text TopMid;
-    [SerializeField] TMP_Text TopRight;
-    [SerializeField] TMP_Text MidMid;
-    [SerializeField] TMP_Text MidLeft;
-    [SerializeField] TMP_Text MidRight;
-    [SerializeField] TMP_Text BottomLeft;
-    [SerializeField] TMP_Text BottomMid;
-    [SerializeField] TMP_Text BottomRight;
     public bool thereIsWinner = false;
     [SerializeField] private GameObject gameMessageCanvas;
     [SerializeField] private GameObject turnManager;
+    [SerializeField] private GameObject boardController;
 
-    
     public void CheckWinner()
     {
-        string[,] board = new string[3, 3]
-        {
-            {TopLeft.text,      TopMid.text,       TopRight.text},
-            {MidLeft.text,      MidMid.text,       MidRight.text},
-            {BottomLeft.text,  BottomMid.text,  BottomRight.text}
-        };
+        BoardTracker boardPositions = boardController.GetComponent<BoardTracker>();
+        string[,] board = boardPositions.TrackBoard();
 
         //loop to check each row and colum in the board
         for (int i = 0; i < 3; i++)
@@ -62,7 +49,6 @@ public class CheckWinCondition : MonoBehaviour
             winMessage.text = "Youv'e reached a Tie!";
             gameMessageCanvas.SetActive(true);
         }
-
 
         else if (thereIsWinner)
         {
